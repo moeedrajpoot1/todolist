@@ -57,16 +57,19 @@ module.exports={
     },
     deleteTask:async(req,res)=>{
         try {
+            console.log(req.query,"==========query")
             const validate= await deleteSchema.validateAsync(req.query)
-            const deleteTask=await taskServices.deleteTask(validate)
+            const deleteTask=await taskServices.deleteTask(validate.taskId)
+            console.log('inside the delete user 2')
+            console.log(deleteTask,"===========deleteTask")
             if(deleteTask.error){
                 return res.send({
                     error:deleteTask.error
                 })
             }
-            return {
-                response:deleteTask
-            }
+            return res.send( {
+                response:deleteTask.response
+            })
         } catch (error) {
             return res.send({
                 message:error.message
@@ -87,7 +90,7 @@ module.exports={
             })
         } catch (error) {
             return res.send({
-                message:error.message
+                message:error
             })
         }
     }
