@@ -1,7 +1,7 @@
 const sequelize=require("../bin/dbconnection")
 const tasks=require("../models/definations/tasks")
-
-const models={tasks}
+const Users=require("../models/definations/usermodels")
+const models={tasks,Users}
 
 
 const Db={}

@@ -14,7 +14,7 @@ tasks.init({
         
     },
     taskInfo:{
-        allowNull:false,
+        
         type:DataTypes.STRING(),
         
     }
